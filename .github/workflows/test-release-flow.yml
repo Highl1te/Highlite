@@ -50,10 +50,9 @@ jobs:
         run: bun run bundle.ts
 
       # Step 5: Create GitHub release
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+      - name: Easy Github Release
+        uses: misha-brt/create-release@v0.0.1
         with:
-          files: dist/**
-          tag_name: Latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # A GitHub API token
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: release
