@@ -45,19 +45,7 @@ jobs:
           echo "Version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_ENV
 
-      - name: Check if the tag exists
-        id: tag_exists
-        run: |
-          TAG_EXISTS=$(git tag -l "v${{ env.version }}")
-          if [ -n "$TAG_EXISTS" ]; then
-            echo "Tag v${{ env.version }} already exists."
-            echo "exists=true" >> $GITHUB_ENV
-          else
-            echo "Tag v${{ env.version }} does not exist."
-            echo "exists=false" >> $GITHUB_ENV
-
       - name: Create a new tag (if needed)
-        if: env.exists == 'false'
         run: |
           git tag "v${{ env.version }}"
           git push origin "v${{ env.version }}"
