@@ -48,11 +48,27 @@ jobs:
       # Step 4: Run bundling
       - name: Build the code
         run: bun run bundle.ts
-
-      # Step 5: Create GitHub release
-      - name: Easy Github Release
-        uses: misha-brt/create-release@v0.0.1
+      
+      # Step 5: Create Release
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.BUILD_TOKEN }}
         with:
-          # A GitHub API token
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: release
+          tag_name: ${{ steps.get_version.outputs.version }}
+          release_name: Release ${{ steps.get_version.outputs.version }}
+          body: Release of version ${{ steps.get_version.outputs.version }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          ACTIONS_STEP_DEBUG: true
+          GITHUB_TOKEN: ${{ secrets.BUILD_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/highlite.user.js
+          asset_name: highlite.user.js
+          asset_content_type: application/text
