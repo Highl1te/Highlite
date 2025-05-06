@@ -11,7 +11,7 @@ await Bun.build({
 // @author       KKonaOG\n\
 // @match        https://highspell.com/game\n\
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=highspell.com\n\
-// @resource     clientjs https://highspell.com/js/client/client.44.js\n\
+// @resource     clientjs https://highspell.com/js/client/client.45.js\n\
 // @connect      raw.githubusercontent.com\n\
 // @grant        GM_addElement\n\
 // @grant        GM_getResourceText\n\
