@@ -56,7 +56,10 @@ function promptForUpdate() {
 function doUpdate() {
     GM_xmlhttpRequest({
         method: "GET",
-        url: `https://raw.githubusercontent.com/Highl1te/Core/refs/heads/main/dist/index.js?${Date.now()}`,
+        headers: {
+            "Cache-Control": "no-cache, no-store, must-revalidate"
+        }
+        url: `https://raw.githubusercontent.com/Highl1te/Core/main/dist/index.js`,
         onload: function(response) {
            GM_addElement('script', {
                textContent: response.responseText
