@@ -40,7 +40,6 @@ function inject(clientjsScriptTag) {
     });
 
     checkForUpdate();
-    begin();
 }
 
 function checkForUpdate() {
