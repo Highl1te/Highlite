@@ -20,7 +20,6 @@ function configureInjection() {
 function inject(clientjsScriptTag) {
     // Obtain Client JavaScript
     let scriptText = GM_getResourceText('clientjs');
-    let highliteText = GM_getResourceText('highlitejs');
 
     // Inject Helper Into Closure
     scriptText = scriptText.substring(0, scriptText.length - 9)
@@ -57,7 +56,7 @@ function doUpdate() {
         method: "GET",
         headers: {
             "Cache-Control": "no-cache, no-store, must-revalidate"
-        }
+        },
         url: `https://raw.githubusercontent.com/Highl1te/Core/main/dist/index.js`,
         onload: function(response) {
            GM_addElement('script', {
