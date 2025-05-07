@@ -7,11 +7,15 @@ Highlite is a RuneLite/GenLite-esque client modification for the game HighSpell.
 2. Change the Tampermonkey Security Mode
    
       a. Go to Tampermonkey -> Dashboard -> Settings Tab
+
+      b. In General Catagory change, Change "Config Mode" to Advanced
    
-      b. In the Security Category, Find "Content Script API"
+      c. In the Security Category, Find "Content Script API"
    
-      c. Change "Content Script API" to "UserScripts API Dynamic"
-   
+      d. Change "Content Script API" to "UserScripts API Dynamic"
+
+      e. Hit the "Save" button at the bottom of the Security Category
+
 4. Navigate to https://github.com/Highl1te/Highlite/releases/latest to obtain the latest release.
    
       a. Click on "highlite.user.js" to install Highlite!
