@@ -16,9 +16,7 @@ Highlite is a RuneLite/GenLite-esque client modification for the game HighSpell.
 
       e. Hit the "Save" button at the bottom of the Security Category
 
-4. Navigate to https://github.com/Highl1te/Highlite/releases/latest to obtain the latest release.
-   
-      a. Click on "highlite.user.js" to install Highlite!
+4. Navigate to https://github.com/Highl1te/Highlite/releases/latest/download/highlite.user.js to obtain the latest release.
    
 6. Enjoy! The Highlite loader has been succesfully installed.
 
