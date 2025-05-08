@@ -6,7 +6,7 @@ await Bun.build({
     banner: "// ==UserScript==\n\
 // @name         Highlite\n\
 // @namespace    Highlite\n\
-// @version      0.1.2\n\
+// @version      0.1.3\n\
 // @description  Rune-lite esque client for High Spell.\n\
 // @author       KKonaOG\n\
 // @match        https://highspell.com/game\n\
