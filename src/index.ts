@@ -14,54 +14,12 @@ function preventClientExecution() {
     });
 }
 
-// function inject(clientjsScriptTag) {
-//     // Obtain Client JavaScript
-//     let scriptText = GM_getResourceText('clientjs');
-
-//     // Inject Helper Into Closure
-//     scriptText = scriptText.substring(0, scriptText.length - 9)
-//         + "; document.client = {};"
-//         + "document.client.get = function(a) {"
-//         + "return eval(a);"
-//         + "};"
-//         + "document.client.set = function(a, b) {"
-//         + "eval(a + ' = ' + b);"
-//         + "};"
-//         + scriptText.substring(scriptText.length - 9)
-
-//     clientjsScriptTag.remove();
-
-//     GM_addElement('script', {
-//         textContent: scriptText
-//     });
-
-//     checkForUpdate();
-// }
-
 async function obtainHighliteCore() {
     let highliteCore = ""
     const highliteCoreURL = "https://cdn.jsdelivr.net/gh/Highl1te/Core@latest/dist/index.js";
     highliteCore = (await GM.xmlHttpRequest({"method": "GET", "url": highliteCoreURL + "?time=" + Date.now()})).responseText;
-
-    // Store the core in IndexDB
-
-    const db = await window.indexedDB.open("highlite", 1);
-    db.onupgradeneeded = function(event) {
-        const db = event.target.result;
-        const objectStore = db.createObjectStore("highlite", { keyPath: "id" });
-        objectStore.createIndex("core", "core", { unique: false });
-    }
-    db.onsuccess = function(event) {
-        const db = event.target.result;
-        const transaction = db.transaction("highlite", "readwrite");
-        const objectStore = transaction.objectStore("highlite");
-        objectStore.put({ id: 1, core: highliteCore });
-    };
-    db.onerror = function(event) {
-        console.error("Error opening IndexedDB: ", event.target.error);
-    };
+    eval(highliteCore)
     console.log("Highlite Core Loaded");
-
 };
 
 async function obtainHighSpellClient() {
@@ -82,15 +40,38 @@ async function obtainHighSpellClient() {
         + "eval(a + ' = ' + b);"
         + "};"
         + highSpellClient.substring(highSpellClient.length - 9)
+
+    eval(highSpellClient)
+    console.log("HighSpell Client Loaded");
 }
-
-
 
 // Entry Point
 (function () {
     // Pause window load until client is injected
     preventClientExecution();
+    let doReact = true;
+    // Wait for the DOM to be ready
+    document.addEventListener("DOMContentLoaded", function () {
+        /*
+            The reason why we are waiting for the DOM to be loaded is because the HighSpell client uses it
+            as the startup event. To make sure we reload the script after the DOM has truly loaded, we specifically
+            fire it after the true DOMContentLoaded event. Tis allows Highlite to interact with the client before
+            it begins execution.
+        */
+       
+        // doReact makes sure we don't react to our own DOMContentLoaded event
+        if (doReact) {
+            doReact = false; // Set to false to prevent infinite loop
+            obtainHighSpellClient().then(() => { // This is the injected client script
+                obtainHighliteCore(); // This is the core script
+            }).then(() => {
+            // Inform HighSpell to Start
+                document.dispatchEvent(new Event("DOMContentLoaded", {
+                    bubbles: true,
+                    cancelable: true
+                }));
+            }); 
+        }
+    });
 
-    obtainHighSpellClient();
-    obtainHighliteCore();
 })();
