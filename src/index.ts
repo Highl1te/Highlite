@@ -16,7 +16,7 @@ function preventClientExecution() {
 
 async function obtainHighliteCore() {
     let highliteCore = ""
-    const highliteCoreURL = "https://cdn.jsdelivr.net/gh/Highl1te/Core@latest/dist/index.js";
+    const highliteCoreURL = "https://raw.githubusercontent.com/Highl1te/Core/refs/heads/main/dist/index.js";
     highliteCore = (await GM.xmlHttpRequest({"method": "GET", "url": highliteCoreURL + "?time=" + Date.now()})).responseText;
     eval(highliteCore)
     console.log("Highlite Core Loaded");
