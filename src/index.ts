@@ -64,14 +64,7 @@ async function obtainHighSpellClient() {
             doReact = false; // Set to false to prevent infinite loop
             obtainHighSpellClient().then(() => { // This is the injected client script
                 obtainHighliteCore(); // This is the core script
-            }).then(() => {
-            // Inform HighSpell to Start
-                document.dispatchEvent(new Event("DOMContentLoaded", {
-                    bubbles: true,
-                    cancelable: true
-                }));
-            }); 
+            }) 
         }
     });
-
 })();
