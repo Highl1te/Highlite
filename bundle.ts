@@ -12,7 +12,8 @@ await Bun.build({
 // @match        https://highspell.com/game\n\
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=highspell.com\n\
 // @resource     clientjs https://highspell.com/js/client/client.46.js\n\
-// @connect      raw.githubusercontent.com\n\
+// @connect      jsdelivr.net\n\
+// @connect      highspell.com\n\
 // @grant        GM_addElement\n\
 // @grant        GM_getResourceText\n\
 // @grant        GM_xmlhttpRequest\n\

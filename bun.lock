@@ -3,6 +3,9 @@
   "workspaces": {
     "": {
       "name": "highlite",
+      "dependencies": {
+        "@types/tampermonkey": "^5.0.4",
+      },
       "devDependencies": {
         "@types/bun": "latest",
       },
@@ -15,6 +18,8 @@
     "@types/bun": ["@types/bun@1.2.12", "", { "dependencies": { "bun-types": "1.2.12" } }, "sha512-lY/GQTXDGsolT/TiH72p1tuyUORuRrdV7VwOTOjDOt8uTBJQOJc5zz3ufwwDl0VBaoxotSk4LdP0hhjLJ6ypIQ=="],
 
     "@types/node": ["@types/node@22.15.8", "", { "dependencies": { "undici-types": "~6.21.0" } }, "sha512-VINDWfc4C3DGAa1J+riYRHjzt+IFj5eRaEl768ze7ZqXcjyN/4WHxPLAWMLTwmODpPvFyzuMTAT6A4RMOHlg5g=="],
+
+    "@types/tampermonkey": ["@types/tampermonkey@5.0.4", "", {}, "sha512-HEJ0O5CkDZSwIgd9Zip4xM8o7gZC8zBmJuH1YEXNINIC+aCWEXD10pnpo3NQG5IWHx+Xr4fMSGq1jqeKXH2lpA=="],
 
     "bun-types": ["bun-types@1.2.12", "", { "dependencies": { "@types/node": "*" } }, "sha512-tvWMx5vPqbRXgE8WUZI94iS1xAYs8bkqESR9cxBB1Wi+urvfTrF1uzuDgBHFAdO0+d2lmsbG3HmeKMvUyj6pWA=="],
 
