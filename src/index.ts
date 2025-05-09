@@ -44,7 +44,9 @@ async function obtainHighSpellClient() {
         + "eval(a + ' = ' + b);"
         + "};"
         + highSpellClient.substring(highSpellClient.length - 9)
-    eval(highSpellClient)
+    GM_addElement("script",
+       {textContent: highSpellClient}
+    );
     console.log("[Highlite Loader] High Spell Client Injection Completed.");
 }
 
