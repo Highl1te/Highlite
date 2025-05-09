@@ -17,7 +17,7 @@ function preventClientExecution() {
 
 async function obtainHighliteCore() {
     let highliteCore = ""
-    const highliteCoreURL = "https://github.com/Highl1te/Core/releases/latest/download/index.js";
+    const highliteCoreURL = "https://github.com/Highl1te/Core/releases/latest/download/highliteCore.js";
     console.log("[Highlite Loader] Obtaining latest Highlite Core version.");
     highliteCore = (await GM.xmlHttpRequest({"method": "GET", "url": highliteCoreURL + "?time=" + Date.now()})).responseText;
 
