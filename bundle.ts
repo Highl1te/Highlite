@@ -7,6 +7,7 @@ const UserBannerProd = `// ==UserScript==\n\
 // @author       KKonaOG\n\
 // @match        https://highspell.com/game\n\
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=highspell.com\n\
+// @connect      github.com\n\
 // @connect      githubusercontent.com\n\
 // @connect      highspell.com\n\
 // @grant        GM_addElement\n\
@@ -37,6 +38,7 @@ const UserBannerDev = `// ==UserScript==\n\
 // @author       KKonaOG\n\
 // @match        https://highspell.com/game\n\
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=highspell.com\n\
+// @connect      github.com\n\
 // @connect      githubusercontent.com\n\
 // @connect      highspell.com\n\
 // @grant        GM_addElement\n\
