@@ -49,7 +49,11 @@ async function obtainHighliteCore(highliteDB: IndexDBWrapper) {
     }
 
     console.log("[Highlite Loader] Highlite Core obtained, executing.");
-    eval(highliteCore)
+    GM_addElement("script",
+        {
+            textContent: highliteCore
+        }
+    );
 };
 
 async function obtainHighSpellClient(highliteDB: IndexDBWrapper) {
@@ -94,11 +98,10 @@ async function obtainHighSpellClient(highliteDB: IndexDBWrapper) {
 (async function () {
     // Starts a MutationObserver to remove the High Spell client script tag from the DOM
     preventClientExecution();
-
+    const highliteDB = new IndexDBWrapper("Highlite");
     let doReact = true;
     // Wait for the DOM to be ready
     document.addEventListener("DOMContentLoaded", async function () {
-        const highliteDB = new IndexDBWrapper("Highlite");
 
         highliteDB.init().then(() => {
             /*
