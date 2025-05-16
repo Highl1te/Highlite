@@ -86,11 +86,9 @@ async function obtainHighSpellClient(highliteDB: IndexDBWrapper) {
         highSpellClient = await highliteDB.getItem("highSpellClient");
     }
 
-    GM_addElement("script",
-       {
+    GM_addElement("script", {
         textContent: highSpellClient
-    }
-    );
+     });
     console.log("[Highlite Loader] High Spell Client Injection Completed.");
 }
 
