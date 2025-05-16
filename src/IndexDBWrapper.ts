@@ -29,8 +29,6 @@ export class IndexDBWrapper {
                     this.db.createObjectStore(this.storeName);
                     console.debug(`[Highlite Loader] IndexDB Object Store ${this.storeName} was created.`);
                 }
-                this.initialized = true;
-                resolve(true);
             };
         });
     }
